@@ -304,7 +304,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 .band .t { border-bottom-color: #A897FF; }
 .band .t:hover { color: #fff; background: rgba(255, 255, 255, .1); }
 @media (max-width: 860px) { .band { grid-template-columns: minmax(0, 1fr); } }
-.band-img { justify-self: center; max-width: 340px; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35)); transform: rotate(-4deg); }
+.band-img { justify-self: center; max-width: min(340px, 100%); height: auto; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35)); transform: rotate(-4deg); }
 
 /* Tables */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
