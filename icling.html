@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iCling™ for Dry Mouth · Pharmedica</title>
+<meta name="description" content="iCling is a dissolving oral film that keeps the mouth moist for up to 2 hours. Order online with delivery across Israel.">
+<meta property="og:title" content="iCling™ for Dry Mouth · Pharmedica">
+<meta property="og:description" content="iCling is a dissolving oral film that keeps the mouth moist for up to 2 hours. Order online with delivery across Israel.">
+<meta name="theme-color" content="#F7F7FC">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Pharmedica home"><img src="assets/img/pharmedica-logo.png" alt="Pharmedica" width="174" height="26"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html#technology">Technology</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#partners">Partners</a>
+      <a href="index.html#team">Team</a>
+      <a href="investors.html">Investors</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="icling.html" aria-current="page">Shop iCling™</a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="index.html#products">Products</a><span>/</span><span aria-current="page">iCling™</span></nav>
+
+  <section class="product">
+    <div class="gallery">
+      <div class="gallery-main chk" data-note="Pack shot is the Hebrew Israeli box. Need an English pack photo for the international site."><img id="gallery-main" src="assets/img/icling-box.webp" alt="iCling box with 20 oral adhesive films" width="700" height="446"></div>
+      <div class="thumbs">
+        <button type="button" aria-pressed="true" data-src="assets/img/icling-box.webp" data-alt="iCling box with 20 oral adhesive films" aria-label="Show the box"><img src="assets/img/icling-box.webp" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/step-open.jpg" data-alt="Opening the single-film pouch" aria-label="Show the pouch"><img src="assets/img/step-open.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/step-hold.jpg" data-alt="The thin film on a fingertip" aria-label="Show the film"><img src="assets/img/step-hold.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/step-place.jpg" data-alt="Placing the film inside the mouth" aria-label="Show placement"><img src="assets/img/step-place.jpg" alt=""></button>
+      </div>
+    </div>
+
+    <div class="buy">
+      <span class="eyebrow">Dry mouth relief · by Pharmedica</span>
+      <h1 style="font-size:clamp(2rem,1.5rem + 2vw,3rem)">iCling™</h1>
+      <p class="lead">A tiny dissolving film that keeps your mouth moist for longer. It sticks inside the mouth and helps your body make its own saliva, gradually, for up to 2 hours.</p>
+      <div class="price"><b class="chk" data-note="Product page shows ₪98; the store FAQ says ₪79. Align before launch.">₪98</b><span class="muted">pack of 20 individually wrapped films</span></div>
+
+      <ul class="ticks">
+        <li>Long-lasting moisture and freshness</li>
+        <li>No sugar, alcohol or preservatives</li>
+        <li>Use it anywhere: no water, no rinsing</li>
+        <li>Suitable for people with diabetes and during medical treatment</li>
+        <li>Made in Israel to <span class="t" data-t="gmp">GMP</span> standards, <span class="t" data-t="iso13485">ISO 13485</span> certified maker</li>
+      </ul>
+
+      <div class="stack" style="gap:10px">
+        <span class="lbl" style="font-weight:600;font-size:var(--fs-sm)" id="qty-lbl">Quantity (packs)</span>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+          <div class="qty" role="group" aria-labelledby="qty-lbl">
+            <button type="button" id="q-minus" aria-label="One pack less">−</button>
+            <input id="qty" type="number" inputmode="numeric" min="1" max="20" value="1" aria-labelledby="qty-lbl">
+            <button type="button" id="q-plus" aria-label="One pack more">+</button>
+          </div>
+          <span class="small muted" id="s-films">20 films</span>
+        </div>
+        <label class="check"><input type="checkbox" id="first-order" checked> First order on the iCling™ store: 25% off</label>
+      </div>
+
+      <div class="summary" aria-live="polite">
+        <div class="row"><span>Subtotal</span><span id="s-sub">₪98</span></div>
+        <div class="row"><span>First-order discount</span><span id="s-disc">—</span></div>
+        <div class="row"><span>Home delivery</span><span id="s-ship">₪25</span></div>
+        <div class="row total"><span>Estimated total</span><span id="s-total">₪123</span></div>
+        <p class="xs muted" id="ship-hint"></p>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary btn-lg" href="https://icling.co.il/product/icling/" target="_blank" rel="noopener">Order now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="#how">How to use</a>
+      </div>
+      <p class="xs muted chk" data-note="Prototype: checkout links to the current Hebrew WooCommerce store. Decide whether to add an English checkout or keep the redirect.">Checkout opens our secure store in a new tab. Delivery within Israel in 2–5 business days. Pay by card, PayPal or Bit. Older customers can also order by phone: +972 4 834 2155.</p>
+    </div>
+  </section>
+</div>
+
+<!-- How to use -->
+<section class="section white" id="how">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">How to use</span>
+      <h2>Easy as 1-2-3</h2>
+      <p class="lead">Use one film when your mouth feels dry, usually 2 to 4 times a day.</p>
+    </div>
+    <div class="how">
+      <figure><img src="assets/img/step-open.jpg" alt="Hands opening the foil pouch" width="350" height="350"><figcaption><h3>1 · Open</h3><p class="small muted">Tear open the pouch.</p></figcaption></figure>
+      <figure><img src="assets/img/step-hold.jpg" alt="A clear film on a dry fingertip" width="339" height="339"><figcaption><h3>2 · Hold</h3><p class="small muted">Take the film on a dry finger.</p></figcaption></figure>
+      <figure><img src="assets/img/step-place.jpg" alt="Pressing the film onto the upper gum" width="391" height="390"><figcaption><h3>3 · Place</h3><p class="small muted chk" data-note="Sources differ: pharmedica.co.il says upper gum; the store says inner cheek or palate. Pick one instruction.">Press it gently onto the upper gum or the inside of the cheek for a few seconds. It dissolves by itself. No chewing, swallowing or rinsing.</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Details tabs -->
+<section class="section">
+  <div class="wrap stack-lg">
+    <div class="head"><span class="eyebrow">Product details</span><h2>Everything on the label</h2></div>
+    <div class="tabs" data-tabs>
+      <div class="tablist" role="tablist" aria-label="Product information">
+        <button role="tab" id="tab-1" aria-controls="p-1" aria-selected="true" tabindex="0" type="button">Specifications</button>
+        <button role="tab" id="tab-2" aria-controls="p-2" aria-selected="false" tabindex="-1" type="button">Ingredients</button>
+        <button role="tab" id="tab-3" aria-controls="p-3" aria-selected="false" tabindex="-1" type="button">Who it is for</button>
+        <button role="tab" id="tab-4" aria-controls="p-4" aria-selected="false" tabindex="-1" type="button">How it compares</button>
+      </div>
+      <div role="tabpanel" id="p-1" aria-labelledby="tab-1">
+        <div class="table-wrap"><table>
+          <tbody>
+            <tr><th scope="row">Product</th><td>iCling™ dissolving film for dry mouth</td></tr>
+            <tr><th scope="row">Form</th><td>Dissolving biopolymer film (<span class="t" data-t="odf">ODF</span>)</td></tr>
+            <tr><th scope="row">Pack</th><td>Box of 20 individually wrapped films</td></tr>
+            <tr><th scope="row">Effect lasts</th><td class="chk" data-note="Store says up to 2 hours (FAQ 60–120 min); deck and old site say 'several hours'. Align.">Up to 2 hours (60–120 minutes on average)</td></tr>
+            <tr><th scope="row">Use</th><td>As needed, usually 2–4 times a day</td></tr>
+            <tr><th scope="row">Taste</th><td>Mild, lemon flavour</td></tr>
+            <tr><th scope="row">Shelf life</th><td>24 months</td></tr>
+            <tr><th scope="row">Storage</th><td>Cool, dry place away from direct sunlight. No refrigeration needed.</td></tr>
+            <tr><th scope="row">Made in</th><td>Israel, under <span class="t" data-t="gmp">GMP</span> conditions</td></tr>
+            <tr><th scope="row">Registration</th><td class="chk" data-note="Conflict: deck says AMAR approval in Israel + FDA OTC monograph in the US; store says 'CE/FDA pending'. Confirm exact status and wording.">Approved by <span class="t" data-t="amar">AMAR</span> in Israel. US and EU registration in progress.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div role="tabpanel" id="p-2" aria-labelledby="tab-2" hidden>
+        <div class="stack">
+          <p>The film is made of plant-based polymers and other <span class="t" data-t="excipient">excipients</span> that are <span class="t" data-t="gras">GRAS</span>. It contains no sugar, alcohol, preservatives or animal ingredients.</p>
+          <div class="chips">
+            <span class="chip"><span class="t" data-t="xylitol">Xylitol</span> 5%</span><span class="chip">Natural flavour</span><span class="chip">Xanthan gum</span><span class="chip"><span class="t" data-t="hpmc">HPMC</span></span><span class="chip">Carbomer</span><span class="chip">PEG 400</span><span class="chip">Propylene glycol</span><span class="chip">Sucralose</span>
+          </div>
+          <p class="small muted chk" data-note="The store says 'natural ingredients only', but the list includes PEG 400, propylene glycol and sucralose. Reword the natural claim.">Ingredient list as printed on the Israeli pack.</p>
+        </div>
+      </div>
+      <div role="tabpanel" id="p-3" aria-labelledby="tab-3" hidden>
+        <ul class="ticks">
+          <li>People with long-term dry mouth (<span class="t" data-t="xero">xerostomia</span>)</li>
+          <li>People taking medicines that reduce saliva. More than 400 medicines can do this, including some for depression, blood pressure, allergies and pain.</li>
+          <li>Cancer patients during or after radiation or chemotherapy</li>
+          <li>Older adults and people who find swallowing hard</li>
+          <li>Anyone with dry mouth at night or on long drives and flights</li>
+        </ul>
+        <p class="small muted" style="margin-top:12px">For adults. Children only on a doctor's advice.</p>
+      </div>
+      <div role="tabpanel" id="p-4" aria-labelledby="tab-4" hidden>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>iCling™ film</th><th>Gels and pastes</th><th>Sprays and rinses</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">How it works</th><td>Sticks and releases moisture over time</td><td>Coats the mouth lining</td><td>Wets the mouth briefly</td></tr>
+            <tr><th scope="row">Effect lasts</th><td><b>60–120 min</b></td><td>20–30 min</td><td>A few minutes</td></tr>
+            <tr><th scope="row">How often</th><td>Low</td><td>Medium</td><td>Very high</td></tr>
+            <tr><th scope="row">Convenience</th><td>Discreet, no water</td><td>Sticky, strong taste</td><td>Liquid, needs water</td></tr>
+          </tbody>
+        </table></div>
+        <p class="xs muted" style="margin-top:8px">Source: Pharmedica product information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dry mouth explainer -->
+<section class="section white">
+  <div class="wrap grid g2" style="align-items:start">
+    <div class="stack">
+      <span class="eyebrow">About dry mouth</span>
+      <h2>About 1 in 5 people live with dry mouth</h2>
+      <p>Saliva cleans the mouth, helps with speaking and swallowing, and protects the teeth. When the glands make too little of it, the mouth feels dry and sticky, and the risk of tooth decay, gum disease and infection goes up.</p>
+      <p>Rates are much higher among people treated for cancer with radiation or chemotherapy, and among people taking certain everyday medicines.</p>
+    </div>
+    <div class="stack">
+      <h3>Common signs</h3>
+      <div class="chips">
+        <span class="chip">Dry or sticky mouth</span><span class="chip">Constant thirst</span><span class="chip">Hard to swallow, speak or chew</span><span class="chip">Bad breath</span><span class="chip">Burning tongue</span><span class="chip">Cracked lips</span><span class="chip">More tooth decay</span>
+      </div>
+      <p class="small muted">Dry mouth that lasts should be checked by a doctor or dentist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap stack-lg">
+    <div class="head"><span class="eyebrow">Questions</span><h2>Frequently asked</h2></div>
+    <div class="faq">
+      <details><summary>Can I use iCling™ during radiation or chemotherapy?</summary><div>Yes. iCling™ was developed with people who have dry mouth from cancer treatment in mind and can be used during active treatment. Ask your care team if you are unsure.</div></details>
+      <details><summary>Is it suitable for people with diabetes?</summary><div>Yes. It is sugar-free and does not affect blood glucose levels.</div></details>
+      <details><summary>Does it interact with other medicines?</summary><div>iCling™ is not swallowed as a medicine and does not affect how other medicines are absorbed.</div></details>
+      <details><summary>What if I swallow the film by accident?</summary><div>No need to worry. It breaks down naturally. The relief will simply end sooner.</div></details>
+      <details><summary>Can I use it while driving or working?</summary><div>Yes. The film is discreet and does not get in the way of talking, driving or sipping a drink.</div></details>
+      <details><summary>Has it been tested?</summary><div><span class="chk" data-note="Deck: 91% positive feedback in initial clinical studies. Professional page: internal user studies, ~90 min average effect. Confirm which figure to publish.">In initial studies with cancer patients and older adults with chronic dry mouth, 91% of users gave positive feedback. Users reported faster relief, about 90 minutes of effect on average, and better sleep and speech.</span></div></details>
+      <details><summary>Where can I buy it?</summary><div>Online through our store, with delivery across Israel, and in selected pharmacies.</div></details>
+      <details><summary>What is your returns policy?</summary><div>You can return an unopened product within 14 days of purchase, in line with Israeli consumer protection law.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- For professionals -->
+<section class="section white">
+  <div class="wrap">
+    <div class="band" style="background:var(--tint);color:var(--ink)">
+      <div class="stack">
+        <span class="eyebrow">For clinics and hospitals</span>
+        <h2 style="color:var(--ink)">Working with dental clinics, oncologists and hospitals</h2>
+        <p style="color:var(--ink-2)">We are happy to support clinical teams who want to offer iCling™ to their patients.</p>
+      </div>
+      <div class="contact-list">
+        <div><span class="lbl">Email</span><span class="copy-line"><code>info@pharmedica.co.il</code><button class="btn btn-ghost btn-sm" type="button" data-copy="info@pharmedica.co.il" style="color:var(--ink);border-color:var(--line-strong)">Copy</button></span></div>
+        <div><span class="lbl">Phone</span><a href="tel:+97248342155">+972 4 834 2155</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="wrap xs muted" style="padding-block:24px">Information on this page is general product information, not medical advice. Read the pack leaflet before use.</p>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/img/pharmedica-logo.png" alt="Pharmedica" width="147" height="22">
+        <p>Programmable drug delivery. Thin oral films that carry more, combine more and release on schedule.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="index.html#technology">Technology</a>
+        <a href="index.html#products">Products and pipeline</a>
+        <a href="index.html#partners">Partners</a>
+        <a href="index.html#team">Team</a>
+      </div>
+      <div>
+        <h4>For you</h4>
+        <a href="icling.html">Shop iCling™</a>
+        <a href="index.html#business">Pharma partners</a>
+        <a href="investors.html">Investors</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="https://www.linkedin.com/company/pharmedica-ltd/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@PharMedica-il" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://icling.co.il/" target="_blank" rel="noopener">iCling™ store (Hebrew)</a>
+      </div>
+    </div>
+    <div class="legal">
+      <p>© 2020–<span data-year>2026</span> Pharmedica Ltd. 3 Pinchas Sapir St., Science Park, Ness Ziona 7403626, Israel. All rights reserved.</p>
+      <p>Information on this site is for general information. It is not medical advice and not an offer to sell or a solicitation to buy any security.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

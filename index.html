@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pharmedica</title>
+<meta name="description" content="Pharmedica develops P/ODF, a programmable oral dissolving film that carries more medicine, combines several ingredients and releases them over minutes to 12 hours.">
+<meta property="og:title" content="Pharmedica">
+<meta property="og:description" content="Pharmedica develops P/ODF, a programmable oral dissolving film that carries more medicine, combines several ingredients and releases them over minutes to 12 hours.">
+<meta name="theme-color" content="#F7F7FC">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Pharmedica home"><img src="assets/img/pharmedica-logo.png" alt="Pharmedica" width="174" height="26"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#technology">Technology</a>
+      <a href="#products">Products</a>
+      <a href="#partners">Partners</a>
+      <a href="#team">Team</a>
+      <a href="investors.html">Investors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="icling.html">Shop iCling™</a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Programmable drug delivery</span>
+      <h1>Medicine on a thin film, <em>programmed</em> to release on time</h1>
+      <p class="lead">Pharmedica makes Oral Dissolving Films (<span class="t" data-t="odf">ODF</span>): thin strips that melt in the mouth and pass medicine through its lining. Our Programmable Oral Dissolving Film (<span class="t" data-t="podf">P/ODF</span>) lets one film carry more medicine, combine several ingredients and release them over minutes or up to 12 hours.</p>
+      <div class="actions">
+        <a class="btn btn-primary btn-lg" href="#technology">See how it works</a>
+        <a class="btn btn-ghost btn-lg" href="investors.html">Investor overview</a>
+      </div>
+      <div class="facts">
+        <div><b class="chk" data-note="Deck: 'up to (exceptional) 150 mg'. Confirm wording for a public site.">150 mg</b><span>max dose per film, 3× a standard film</span></div>
+        <div><b>12 h</b><span>longest programmable release</span></div>
+        <div><b>Multi</b><span>active ingredients in one film, even ones that clash</span></div>
+        <div><b>2025</b><span>first product, iCling™, launched</span></div>
+      </div>
+    </div>
+
+    <!-- Film programmer: the one interactive "moment" on the page -->
+    <div class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="lab-top">
+        <h3 id="lab-title">Design a film</h3>
+        <span class="badge grey">Illustration, not clinical data</span>
+      </div>
+      <div class="ctrl">
+        <div class="ctrl-row"><label for="dose">Dose in one film</label><output id="dose-out" for="dose">40 mg</output></div>
+        <div class="range-wrap">
+          <input id="dose" type="range" min="5" max="150" step="5" value="40" aria-describedby="dose-note">
+          <span class="limit-mark" id="limit-mark" aria-hidden="true"></span>
+        </div>
+        <div class="limit-note" id="dose-note"><span>5 mg</span><span>▲ standard film limit, about 50 mg</span><span>150 mg</span></div>
+      </div>
+      <div class="ctrl">
+        <span class="lbl" id="dur-lbl">Release time</span>
+        <div class="seg" id="dur" role="group" aria-labelledby="dur-lbl">
+          <button type="button" data-v="10" aria-pressed="false">10 min</button>
+          <button type="button" data-v="60" aria-pressed="false">1 hour</button>
+          <button type="button" data-v="240" aria-pressed="true">4 hours</button>
+          <button type="button" data-v="720" aria-pressed="false">12 hours</button>
+        </div>
+      </div>
+      <div class="ctrl">
+        <span class="lbl" id="acts-lbl">Active ingredients</span>
+        <div class="seg" id="acts" role="group" aria-labelledby="acts-lbl">
+          <button type="button" data-v="1" aria-pressed="false">One</button>
+          <button type="button" data-v="2" aria-pressed="true">Two</button>
+          <button type="button" data-v="3" aria-pressed="false">Three</button>
+        </div>
+      </div>
+      <div class="lab-visual">
+        <svg class="film-svg" id="film" viewBox="0 0 160 120" role="img" aria-label="Film layers, one per active ingredient"></svg>
+        <div>
+          <svg id="curve" viewBox="0 0 300 120" role="img" aria-label="Release pattern over time"></svg>
+          <div class="limit-note"><span>0</span><span id="axis-mid">2 h</span><span id="axis-end">4 h</span></div>
+        </div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW A FILM WORKS ================= -->
+<section class="section white" id="basics">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">The basics</span>
+      <h2>How an oral film works</h2>
+      <p class="lead">An oral film looks like a small clear sticker. You place it in your mouth and it does the rest.</p>
+    </div>
+    <ol class="steps" style="list-style:none;padding:0;margin:0">
+      <li class="step"><span class="step-n">Step 1</span><h3>Place it in the mouth</h3><p>On the tongue, the gum or the inside of the cheek. No water, nothing to swallow.</p></li>
+      <li class="step"><span class="step-n">Step 2</span><h3>It dissolves</h3><p>Saliva softens the film. The design of the film decides how fast it lets go of each ingredient.</p></li>
+      <li class="step"><span class="step-n">Step 3</span><h3>Medicine enters the blood</h3><p>Ingredients pass through the lining of the mouth, the <span class="t" data-t="mucosa">oral mucosa</span>, straight into the bloodstream.</p></li>
+    </ol>
+    <div class="grid g3">
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Works fast</h3><p>Absorption through the mouth lining starts quickly.</p></div>
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Precise dosing</h3><p>Controlled delivery gives better stability and can lower the dose needed.</p></div>
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><path d="M21 5v14"/></svg></div><h3>Skips the liver's first pass</h3><p>Avoiding <span class="t" data-t="firstpass">first-pass metabolism</span> means fewer side effects across the body.</p></div>
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Hard to misuse</h3><p>A fixed dose per film helps prevent overdose.</p></div>
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9.5" r="2.5"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg></div><h3>Easy for every patient</h3><p>Suits children, older adults and people who find swallowing hard (<span class="t" data-t="dysphagia">dysphagia</span>).</p></div>
+      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></div><h3>Discreet and portable</h3><p>Fits in a wallet. Use it anywhere, without water.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEM vs P/ODF ================= -->
+<section class="section" id="why">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">Why films stayed small</span>
+      <h2>Four limits kept oral films in a niche. P/ODF removes them.</h2>
+      <p class="lead">Films have been on pharmacy shelves for years, yet most medicines could never use them. A standard film holds too little, dissolves in minutes, handles one ingredient and is costly to make.</p>
+    </div>
+    <div class="compare" role="table" aria-label="Standard oral film compared with P/ODF">
+      <div class="compare-row" role="row"><span class="dim" role="columnheader">What matters</span><span role="columnheader">Standard oral film</span><span role="columnheader">Pharmedica P/ODF</span></div>
+      <div class="compare-row" role="row">
+        <span class="dim" role="cell">How much medicine one film can carry</span>
+        <span class="old" role="cell">Under 50 mg<div class="bar"><i data-w="33%"></i></div></span>
+        <span class="new" role="cell">Up to 150 mg<div class="bar"><i data-w="100%"></i></div></span>
+      </div>
+      <div class="compare-row" role="row">
+        <span class="dim" role="cell">How long it releases</span>
+        <span class="old" role="cell">A few minutes<div class="bar"><i data-w="5%"></i></div></span>
+        <span class="new" role="cell">Programmable, minutes to 12 hours<div class="bar"><i data-w="100%"></i></div></span>
+      </div>
+      <div class="compare-row" role="row">
+        <span class="dim" role="cell">Active ingredients (<span class="t" data-t="api">APIs</span>)</span>
+        <span class="old" role="cell">Usually one</span>
+        <span class="new" role="cell">Several, including ingredients that would react with each other</span>
+      </div>
+      <div class="compare-row" role="row">
+        <span class="dim" role="cell">How it is made</span>
+        <span class="old" role="cell"><span class="t" data-t="casting">Solvent casting</span>: slow and costly</span>
+        <span class="new" role="cell">Solvent-free <span class="t" data-t="hme">hot-melt extrusion</span></span>
+      </div>
+      <div class="compare-row" role="row">
+        <span class="dim" role="cell">Batch size</span>
+        <span class="old" role="cell">Large runs only</span>
+        <span class="new" role="cell">Small tailored batches or large runs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+<section class="section white" id="technology">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">Technology</span>
+      <h2>Four building blocks inside every P/ODF film</h2>
+      <p class="lead">Choose a building block to see where it sits in the film.</p>
+    </div>
+    <div class="tech">
+      <div class="tech-list" id="tech-list">
+        <button class="tech-item" type="button" data-k="swell" aria-pressed="true" data-cap="The bottom layer soaks up saliva and turns into a soft gel. The gel holds a larger dose and lets it out slowly.">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+          <span><h3>Swelling patch</h3><p>A <span class="t" data-t="hygro">hygroscopic</span> polymer swells with moisture into a gel, for controlled release of a high dose.</p></span>
+        </button>
+        <button class="tech-item" type="button" data-k="layers" aria-pressed="false" data-cap="Ultra-thin layers are laminated together. Each layer carries its own ingredient with its own release time.">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span>
+          <span><h3>Multilayer 3D film</h3><p>Ultra-thin stacked layers. Each carries an ingredient with its own release timing.</p></span>
+        </button>
+        <button class="tech-item" type="button" data-k="wells" aria-pressed="false" data-cap="Tiny pockets in a perforated layer keep ingredients physically apart, so ingredients that would react with each other can share one film.">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/></svg></span>
+          <span><h3>Micro-reservoirs (wells)</h3><p>Tiny separate pockets keep clashing ingredients apart inside one film.</p></span>
+        </button>
+        <button class="tech-item" type="button" data-k="hme" aria-pressed="false" data-cap="The whole film is made by hot-melt extrusion: no solvents, and the same line runs small custom batches or large volumes.">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6l8 4v10z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg></span>
+          <span><h3>Hot-melt manufacturing</h3><p>Solvent-free <span class="t" data-t="hme">HME</span> production that scales from small batches to large runs.</p></span>
+        </button>
+      </div>
+      <div class="tech-stage">
+        <svg id="tech-svg" viewBox="0 0 470 320" role="img" aria-label="Exploded view of a P/ODF film with four layers">
+          <defs>
+            <radialGradient id="gelG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#2E9BD6" stop-opacity=".45"/><stop offset="100%" stop-color="#2E9BD6" stop-opacity="0"/></radialGradient>
+          </defs>
+          <ellipse id="gel" cx="210" cy="262" rx="170" ry="40" fill="url(#gelG)" style="transition:opacity .4s"/>
+          <g id="extruder" style="transition:opacity .4s">
+            <rect x="8" y="132" width="40" height="40" rx="6" fill="#E9E5FC" stroke="#5F40D9" stroke-width="1.5"/>
+            <path d="M48 152 H70" stroke="#5F40D9" stroke-width="2" stroke-dasharray="4 4"/>
+            <path d="M66 147 L74 152 L66 157" fill="none" stroke="#5F40D9" stroke-width="2"/>
+            <text x="28" y="190" text-anchor="middle" font-size="11" fill="#64658A" font-family="DM Sans, sans-serif">extruder</text>
+          </g>
+          <g id="L4" class="layer">
+            <polygon points="70,200 210,160 350,200 210,240" fill="#2E9BD6" fill-opacity=".22" stroke="#2E9BD6" stroke-width="1.5"/>
+            <polygon points="70,200 210,240 210,252 70,212" fill="#2E9BD6" fill-opacity=".45"/>
+            <polygon points="210,240 350,200 350,212 210,252" fill="#2E9BD6" fill-opacity=".6"/>
+            <text x="362" y="214" font-size="11" fill="#64658A" font-family="DM Sans, sans-serif">swelling layer</text>
+          </g>
+          <g id="L3" class="layer">
+            <polygon points="70,170 210,130 350,170 210,210" fill="#8E77EA" fill-opacity=".2" stroke="#8E77EA" stroke-width="1.5"/>
+            <polygon points="70,170 210,210 210,218 70,178" fill="#8E77EA" fill-opacity=".45"/>
+            <polygon points="210,210 350,170 350,178 210,218" fill="#8E77EA" fill-opacity=".6"/>
+          </g>
+          <g id="L2" class="layer">
+            <polygon points="70,140 210,100 350,140 210,180" fill="#5F40D9" fill-opacity=".16" stroke="#5F40D9" stroke-width="1.5"/>
+            <polygon points="70,140 210,180 210,188 70,148" fill="#5F40D9" fill-opacity=".4"/>
+            <polygon points="210,180 350,140 350,148 210,188" fill="#5F40D9" fill-opacity=".55"/>
+            <ellipse cx="160" cy="140" rx="18" ry="7" fill="#FFFFFF" stroke="#5F40D9" stroke-width="1.5"/>
+            <ellipse cx="210" cy="126" rx="18" ry="7" fill="#FFFFFF" stroke="#D2468F" stroke-width="1.5"/>
+            <ellipse cx="260" cy="140" rx="18" ry="7" fill="#FFFFFF" stroke="#2E9BD6" stroke-width="1.5"/>
+            <ellipse cx="210" cy="154" rx="18" ry="7" fill="#FFFFFF" stroke="#5F40D9" stroke-width="1.5"/>
+            <text x="362" y="150" font-size="11" fill="#64658A" font-family="DM Sans, sans-serif">wells</text>
+          </g>
+          <g id="L1" class="layer">
+            <polygon points="70,110 210,70 350,110 210,150" fill="#5F40D9" fill-opacity=".1" stroke="#5F40D9" stroke-width="1.5"/>
+            <polygon points="70,110 210,150 210,156 70,116" fill="#5F40D9" fill-opacity=".3"/>
+            <polygon points="210,150 350,110 350,116 210,156" fill="#5F40D9" fill-opacity=".45"/>
+            <text x="362" y="114" font-size="11" fill="#64658A" font-family="DM Sans, sans-serif">top layer</text>
+          </g>
+        </svg>
+        <p class="cap" id="tech-cap" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS & PIPELINE ================= -->
+<section class="section" id="products">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">Products and pipeline</span>
+      <h2>One on the market, more on the way</h2>
+      <p class="lead">Pharmedica starts with products that prove the platform in real use, then helps pharma partners move their own medicines into film form.</p>
+    </div>
+    <div class="pipe">
+      <div class="pipe-head"><span>Product</span><span>What it does</span><span>Stage</span></div>
+      <div class="pipe-row">
+        <div><h3>iCling™ · dry mouth</h3><span class="badge ok" style="margin-top:6px">On sale in Israel</span></div>
+        <p>Sticks to the inside of the mouth and helps the body make its own saliva over time. Relief for dry mouth (<span class="t" data-t="xero">xerostomia</span>) caused by medicines, cancer treatment or age. <a href="icling.html">Shop iCling™</a></p>
+        <div><div class="stages"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div><div class="stage-labels"><span>Design</span><span>Prototype</span><span>Clinical</span><span>Market</span></div></div>
+      </div>
+      <div class="pipe-row">
+        <div><h3>Mucositis relief</h3><span class="badge" style="margin-top:6px">Clinical trial</span></div>
+        <p>For painful mouth sores from chemotherapy (<span class="t" data-t="mucositis">oral mucositis</span>). Two known drugs, a pain reliever and an anti-inflammatory, released over 4 hours instead of short rinses. Trial at the Oncology Department, Tel Aviv Medical Center.</p>
+        <div class="chk" data-note="Deck says 'initiating clinical trial'; milestone: trial complete Q4 2026. Confirm current status."><div class="stages"><span class="on"></span><span class="on"></span><span class="now"></span><span></span></div><div class="stage-labels"><span>Design</span><span>Prototype</span><span>Clinical</span><span>Market</span></div></div>
+      </div>
+      <div class="pipe-row">
+        <div><h3>Pain control</h3><span class="badge" style="margin-top:6px">Prototype</span></div>
+        <p>A strong, known pain reliever in a film for wounded soldiers in the field, faster and easier to handle than current options. Developed with the Israel Defense Forces Medical Corps.</p>
+        <div class="chk" data-note="Deck: 'initiating collaboration with IDF'; prototype ready for testing Q4 2026. Confirm what can be said publicly."><div class="stages"><span class="on"></span><span class="now"></span><span></span><span></span></div><div class="stage-labels"><span>Design</span><span>Prototype</span><span>Clinical</span><span>Market</span></div></div>
+      </div>
+      <div class="pipe-row">
+        <div><h3>Anti-drooling for Parkinson's</h3><span class="badge" style="margin-top:6px">Pre-clinical</span></div>
+        <p>Delivers <span class="t" data-t="glyco">glycopyrrolate</span> through the mouth lining into the blood. Tested successfully in an animal model.</p>
+        <div><div class="stages"><span class="on"></span><span class="now"></span><span></span><span></span></div><div class="stage-labels"><span>Design</span><span>Prototype</span><span>Clinical</span><span>Market</span></div></div>
+      </div>
+      <div class="pipe-row">
+        <div><h3>Medical cannabis</h3><span class="badge" style="margin-top:6px">Co-development</span></div>
+        <p>Through CannaBeyond, a 50% subsidiary, delivering specific cannabinoids directly into the bloodstream with Pharmedica's film technology.</p>
+        <div class="chk" data-note="CannaBeyond structure is an open item with the company."><div class="stages"><span class="now"></span><span></span><span></span><span></span></div><div class="stage-labels"><span>Design</span><span>Prototype</span><span>Clinical</span><span>Market</span></div></div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:8px">
+      <div class="card"><h3>When timing matters</h3><p class="small muted">Medicines where the speed or rhythm of release is critical: pain, neurological and metabolic conditions.</p></div>
+      <div class="card"><h3>When swallowing hurts</h3><p class="small muted">Medicines that irritate the stomach or lose strength in the gut and liver.</p></div>
+      <div class="card"><h3>When the problem is in the mouth</h3><p class="small muted">Local treatment for mucositis, dry mouth, bad breath and mouth infections.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUSINESS MODEL (pharma partners) ================= -->
+<section class="section white" id="business">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">For pharma and health brands</span>
+      <h2>Your proven medicine, in a new film format</h2>
+      <p class="lead">Partners bring medicines that already work. Pharmedica reformulates them as P/ODF films, which can mean a new product line without starting drug discovery from scratch. The same platform serves <span class="t" data-t="nutra">nutraceutical</span> and supplement brands.</p>
+    </div>
+    <div class="flow">
+      <div class="node"><span class="eyebrow">Partner</span><h3>Picks an existing drug</h3><p class="small muted">A pharmaceutical company selects medicines from its portfolio.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node main"><span class="eyebrow">Pharmedica</span><h3>Develops and manufactures the film</h3><p class="small muted">Custom development and production in P/ODF format.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="eyebrow">Market</span><h3>Partner sells the new product</h3><p class="small muted">Pharmedica earns one-time development fees and a share of the revenue.</p></div>
+    </div>
+    <div class="actions"><a class="btn btn-primary" href="#contact">Discuss a partnership</a></div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section class="section" id="partners">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">Partners</span>
+      <h2>Working with leaders in health care</h2>
+    </div>
+    <div class="grid g3">
+      <div class="partner chk" data-note="Name and wording need written approval; status of the Colgate agreement is an open item."><span class="tag">Consumer health</span><h3>Colgate-Palmolive</h3><p>Co-development and licensing of active substances for dry mouth.</p></div>
+      <div class="partner chk" data-note="Name and wording need written approval; status of the Dr. Reddy's agreement is an open item."><span class="tag">Pharma</span><h3>Dr. Reddy's</h3><p>Co-development of an anti-drooling film for people with Parkinson's disease.</p></div>
+      <div class="partner"><span class="tag">Strategic shareholder</span><h3>Maccabi-Dent</h3><p>Israel's largest dental clinic chain. A joint clinical trial for iCling™ is planned.</p></div>
+      <div class="partner"><span class="tag">Clinical</span><h3>Tel Aviv Sourasky Medical Center</h3><p>Clinical trial of the mucositis relief film in the Oncology Department.</p></div>
+      <div class="partner"><span class="tag">Defense medicine</span><h3>IDF Medical Corps</h3><p>Initial work with the Chief Medical Officer on a pain-relief film for injured soldiers.</p></div>
+      <div class="partner"><span class="tag">Subsidiary</span><h3>CannaBeyond</h3><p>A 50% subsidiary for medical cannabis built on Pharmedica's technology.</p></div>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="eyebrow">Recognition</span><h3><span class="num">₪1.7M</span> grant</h3><p class="small muted">From the Israel Innovation Authority for production-line innovation.</p></div>
+      <div class="card"><span class="eyebrow">Patients</span><h3><span class="num">91%</span> positive feedback</h3><p class="small muted">On iCling™ in initial clinical studies.</p></div>
+      <div class="card"><span class="eyebrow">Protection</span><h3>Patents in the US and Europe</h3><p class="small muted">Granted patents plus pending applications on the platform. <a href="investors.html#ip">See the list</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="section white" id="team">
+  <div class="wrap stack-lg">
+    <div class="head">
+      <span class="eyebrow">Team</span>
+      <h2>Scientists, engineers and company builders</h2>
+    </div>
+    <div class="grid g3 chk" data-note="Photos taken from the June 2026 deck at low resolution. Ask for original headshots.">
+      <div class="person"><img src="assets/img/team/yoram-rubin.jpg" alt="Yoram Rubin" width="64" height="64"><div><h3>Dr. Yoram Rubin</h3><p class="role">Founder &amp; CEO</p><p>25+ years founding medical and biotech companies. PhD in physiology and pharmacology; decades of R&amp;D management.</p></div></div>
+      <div class="person"><img src="assets/img/team/shuki-sheinman.jpg" alt="Shuki Sheinman" width="64" height="64"><div><h3>Prof. Shuki Sheinman</h3><p class="role">Chief Technology Officer</p><p>Engineering degrees from the Technion and Tel Aviv University. Co-founder and co-inventor of several companies; 50+ granted patents.</p></div></div>
+      <div class="person"><img src="assets/img/team/opher-shapira.jpg" alt="Opher Shapira" width="64" height="64"><div><h3>Dr. Opher Shapira</h3><p class="role">Chairman</p><p>30+ years leading high-tech and medtech companies, including CEO of Yeda (Weizmann Institute) and Nucleix; co-founder of BioView. PhD in physics, Yale.</p></div></div>
+      <div class="person"><img src="assets/img/team/yochai-yaacovson.jpg" alt="Yochai Yaacovson" width="64" height="64"><div><h3>Yochai Yaacovson</h3><p class="role">R&amp;D Manager</p><p>20 years in senior pharmaceutical R&amp;D: formulation development, drug delivery systems and project management.</p></div></div>
+      <div class="person"><img src="assets/img/team/guy-tobias.jpg" alt="Guy Tobias" width="64" height="64"><div><h3>Dr. Guy Tobias</h3><p class="role">Medical Director</p><p>Dentist and public dental health specialist (DMD, PhD, MPH), Hebrew University. Former Scientific Director at Colgate Israel.</p></div></div>
+      <div class="person"><img src="assets/img/team/edly-dollar.jpg" alt="Edly Dollar" width="64" height="64"><div><h3>Edly Dollar</h3><p class="role">Board Member</p><p>Venture capital and private equity investor in technology transfer. Former Chair at the Weizmann Institute and Trustee of Yeda.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ICLING BAND ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="band">
+      <div class="stack">
+        <span class="eyebrow" style="color:#B9A9FF">Our first product</span>
+        <h2>iCling™ for dry mouth</h2>
+        <p>About 1 in 5 people live with dry mouth. iCling™ is a small film you stick inside your mouth. It dissolves slowly and keeps the mouth moist for up to 2 hours. Made in Israel to <span class="t" data-t="gmp">GMP</span> standards.</p>
+        <div class="actions"><a class="btn btn-primary" href="icling.html">Shop iCling™</a><a class="btn btn-ghost" href="icling.html#how">How to use it</a></div>
+      </div>
+      <img class="band-img" src="assets/img/icling-box.webp" alt="iCling box with 20 oral adhesive films for dry mouth" width="700" height="446">
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVESTORS TEASER ================= -->
+<section class="section white">
+  <div class="wrap grid g2" style="align-items:center">
+    <div class="stack">
+      <span class="eyebrow">Investors</span>
+      <h2>A platform with a product already on the market</h2>
+      <p class="lead">P/ODF targets four medicine groups with a combined market of about $211 billion (2024). See the business model, milestones, patents and plan.</p>
+      <div class="actions"><a class="btn btn-primary" href="investors.html">Investor overview</a></div>
+    </div>
+    <div class="kpis" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div><b>~$211B</b><span>addressable markets, 2024</span></div>
+      <div><b>3</b><span>granted patents (US, Europe)</span></div>
+      <div style="border-left:0;border-top:1px solid var(--line)"><b>₪1.7M</b><span>government innovation grant</span></div>
+      <div style="border-top:1px solid var(--line)"><b>Q4 2025</b><span>first product launched</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="stack">
+      <span class="eyebrow">Contact</span>
+      <h2>Talk to us</h2>
+      <p class="lead">Pharma partnerships, clinical collaboration, distribution or iCling™ questions.</p>
+      <div class="contact-list" style="margin-top:12px">
+        <div><span class="lbl">Email</span><span class="copy-line"><code>info@pharmedica.co.il</code><button class="btn btn-ghost btn-sm" type="button" data-copy="info@pharmedica.co.il">Copy</button></span></div>
+        <div><span class="lbl">Phone</span><a href="tel:+97248342155">+972 4 834 2155</a></div>
+        <div class="chk" data-note="Old dry-mouth page still shows P.O. Box 15060, Matam, Haifa. Confirm the official address."><span class="lbl">R&amp;D center</span><span>3 Pinchas Sapir St., 2nd floor, Science Park, Ness Ziona 7403626, Israel</span></div>
+      </div>
+    </div>
+    <form class="form card" data-mailto="info@pharmedica.co.il" data-subject="Website enquiry" novalidate>
+      <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" data-label="Name" required autocomplete="name"></div>
+      <div class="field"><label for="c-org">Company</label><input id="c-org" name="org" data-label="Company" autocomplete="organization"></div>
+      <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" data-label="Email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="c-topic">Topic</label>
+        <select id="c-topic" name="topic" data-label="Topic">
+          <option>Pharma partnership</option><option>Clinical collaboration</option><option>Distribution</option><option>iCling™ question</option><option>Investor relations</option><option>Other</option>
+        </select></div>
+      <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" name="message" data-label="Message" rows="4" required></textarea></div>
+      <div class="full actions" style="align-items:center"><button class="btn btn-primary" type="submit">Write to us</button><span class="xs muted">Opens your email app with the message filled in.</span></div>
+      <p class="notice full" hidden>Your email app should open now. If it does not, write to info@pharmedica.co.il.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/img/pharmedica-logo.png" alt="Pharmedica" width="147" height="22">
+        <p>Programmable drug delivery. Thin oral films that carry more, combine more and release on schedule.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="index.html#technology">Technology</a>
+        <a href="index.html#products">Products and pipeline</a>
+        <a href="index.html#partners">Partners</a>
+        <a href="index.html#team">Team</a>
+      </div>
+      <div>
+        <h4>For you</h4>
+        <a href="icling.html">Shop iCling™</a>
+        <a href="index.html#business">Pharma partners</a>
+        <a href="investors.html">Investors</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="https://www.linkedin.com/company/pharmedica-ltd/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@PharMedica-il" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://icling.co.il/" target="_blank" rel="noopener">iCling™ store (Hebrew)</a>
+      </div>
+    </div>
+    <div class="legal">
+      <p>© 2020–<span data-year>2026</span> Pharmedica Ltd. 3 Pinchas Sapir St., Science Park, Ness Ziona 7403626, Israel. All rights reserved.</p>
+      <p>Information on this site is for general information. It is not medical advice and not an offer to sell or a solicitation to buy any security.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
